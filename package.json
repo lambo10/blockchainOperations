@@ -1,0 +1,20 @@
+{
+    "name": "blockchainOperations",
+    "version": "1.0.0",
+    "description": "Handles basic blockchain operations",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js"
+    },
+    "author": "Lambert Nnadi",
+    "license": "ISC",
+    "dependencies": {
+        "bip39": "^3.0.4",
+        "dotenv": "^16.0.1",
+        "ethers": "^5.6.9",
+        "express": "^4.18.1",
+        "moralis": "^1.8.0",
+        "web3": "^0.20.7"
+    }
+}
