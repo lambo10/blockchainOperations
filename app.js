@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const erc1155Abi = JSON.parse(fs.readFileSync("./erc1155.json", "utf8"));
 const app = express();
+const Web3 = require("web3");
 app.use(bodyParser({ extended: true }));
 
 app.disable("x-powered-by");
