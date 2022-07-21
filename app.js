@@ -108,7 +108,7 @@ app.get(
                     break;
             }
             const web3 = new Web3(new Web3.providers.HttpProvider(rpc));
-            const erc1155Contract = new web3.eth.contract(
+            const erc1155Contract = new web3.eth.Contract(
                 erc1155Abi,
                 req.params.contractaddress, {
                     from: req.params.address,
