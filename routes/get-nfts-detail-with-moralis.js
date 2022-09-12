@@ -11,6 +11,7 @@ const nft_contract_address = process.env.nft_contract_address;
 
 
 router.get("/", async(req, res) => {
+    console.log("---" + req.query.apiKey + "---------" + process.env.APIKEY);
     if (authenticator.auth(req.query.apiKey)) {
         try {
             res.json(await getUserNFT(req.query.address));
