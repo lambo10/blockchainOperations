@@ -31,6 +31,9 @@ app.use("/get-nfts-with-bscscan", getNftsWithBscscan);
 const calc_nft_prices = require("./routes/calc_nft_prices");
 app.use("/calc_nft_prices", calc_nft_prices);
 
+const privateMint = require("./routes/private-mint");
+app.use("/private-mint", privateMint);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
