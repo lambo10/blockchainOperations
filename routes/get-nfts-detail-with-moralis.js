@@ -29,6 +29,7 @@ router.get("/", async(req, res) => {
 });
 
 async function getUserNFT(address) {
+    console.log(nft_contract_address);
     const options = {
         chain: "bsc",
         address: address,
