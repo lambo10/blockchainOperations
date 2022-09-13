@@ -5,19 +5,28 @@
 
 export interface paths {
   "/account/{network}/{address}/balance": {
+    /** Gets native balance owned by the given network and address */
     get: operations["balance"];
   };
   "/account/{network}/{address}/tokens": {
+    /** Gets token balances owned by the given network and address */
     get: operations["getSPL"];
   };
   "/account/{network}/{address}/nft": {
+    /** Gets NFTs owned by the given network and address */
     get: operations["getNFTs"];
   };
   "/account/{network}/{address}/portfolio": {
+    /** Gets the portfolio of the given network and address */
     get: operations["getPortfolio"];
   };
   "/nft/{network}/{address}/metadata": {
+    /** Gets the contract level metadata (mint, standard, name, symbol, metaplex) for the given network and contract */
     get: operations["getNFTMetadata"];
+  };
+  "/token/{network}/{address}/price": {
+    /** Gets the token price (usd and native) for a given contract address and network */
+    get: operations["getTokenPrice"];
   };
 }
 
@@ -58,10 +67,23 @@ export interface components {
       symbol: string;
       metaplex: components["schemas"]["MetaplexNFT"];
     };
+    SPLNativePrice: {
+      value: string;
+      decimals: number;
+      name: string;
+      symbol: string;
+    };
+    SPLTokenPrice: {
+      nativePrice: components["schemas"]["SPLNativePrice"];
+      usdPrice: number;
+      exchangeAddress: string;
+      exchangeName: string;
+    };
   };
 }
 
 export interface operations {
+  /** Gets native balance owned by the given network and address */
   balance: {
     parameters: {
       path: {
@@ -75,8 +97,14 @@ export interface operations {
           "application/json": components["schemas"]["NativeBalance"];
         };
       };
+      400: {
+        content: {
+          "application/json": string;
+        };
+      };
     };
   };
+  /** Gets token balances owned by the given network and address */
   getSPL: {
     parameters: {
       path: {
@@ -90,8 +118,14 @@ export interface operations {
           "application/json": components["schemas"]["SPLTokenBalance"][];
         };
       };
+      400: {
+        content: {
+          "application/json": string;
+        };
+      };
     };
   };
+  /** Gets NFTs owned by the given network and address */
   getNFTs: {
     parameters: {
       path: {
@@ -105,8 +139,14 @@ export interface operations {
           "application/json": components["schemas"]["SPLNFT"][];
         };
       };
+      400: {
+        content: {
+          "application/json": string;
+        };
+      };
     };
   };
+  /** Gets the portfolio of the given network and address */
   getPortfolio: {
     parameters: {
       path: {
@@ -120,8 +160,14 @@ export interface operations {
           "application/json": components["schemas"]["Portfolio"];
         };
       };
+      400: {
+        content: {
+          "application/json": string;
+        };
+      };
     };
   };
+  /** Gets the contract level metadata (mint, standard, name, symbol, metaplex) for the given network and contract */
   getNFTMetadata: {
     parameters: {
       path: {
@@ -133,6 +179,32 @@ export interface operations {
       200: {
         content: {
           "application/json": components["schemas"]["NFTMetadata"];
+        };
+      };
+      400: {
+        content: {
+          "application/json": string;
+        };
+      };
+    };
+  };
+  /** Gets the token price (usd and native) for a given contract address and network */
+  getTokenPrice: {
+    parameters: {
+      path: {
+        address: string;
+        network: "mainnet";
+      };
+    };
+    responses: {
+      200: {
+        content: {
+          "application/json": components["schemas"]["SPLTokenPrice"];
+        };
+      };
+      400: {
+        content: {
+          "application/json": string;
         };
       };
     };
@@ -153,6 +225,10 @@ export default class SolanaApi {
 
   static nft: {
     getNFTMetadata: (options: operations["getNFTMetadata"]["parameters"]["path"]) => Promise<operations["getNFTMetadata"]["responses"]["200"]["content"]["application/json"]>;
+  }
+
+  static token: {
+    getTokenPrice: (options: operations["getTokenPrice"]["parameters"]["path"]) => Promise<operations["getTokenPrice"]["responses"]["200"]["content"]["application/json"]>;
   }
 
 }

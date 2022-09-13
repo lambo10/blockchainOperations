@@ -4,6 +4,7 @@ const ethers = require("ethers");
 const router = express.Router();
 const authenticator = require("../authenticator/index.js");
 
+
 const moralis_serverUrl = process.env.moralis_serverUrl;
 const moralis_appId = process.env.momoralis_appID;
 const moralis_masterKey = process.env.moralis_masterKey;
@@ -11,7 +12,7 @@ const nft_contract_address = process.env.nft_contract_address;
 
 
 router.get("/", async(req, res) => {
-    console.log("---" + req.query.apiKey + "---------" + process.env.APIKEY);
+
     if (authenticator.auth(req.query.apiKey)) {
         try {
             res.json(await getUserNFT(req.query.address));
@@ -36,8 +37,13 @@ async function getUserNFT(address) {
         address: address,
         token_address: nft_contract_address,
     };
-    await Moralis.start({ moralis_serverUrl, moralis_appId, moralis_masterKey });
-    const Nfts = await Moralis.Web3API.account.getNFTsForContract(options);
+    await Moralis.start({ apiKey: "fCtAI9Fs6Eff1je1ZOHmN56zW9S2fnsf6ZuWvA9ViVobrnJXOZlqWyDTV7dmN6Vl" });
+    // const Nfts = await Moralis.Web3API.account.getNFTsForContract(options);
+
+    const Nfts = await Moralis.EvmApi.nft.getWalletNFTs({
+        address,
+        chain,
+    });
 
     return (Nfts);
 }

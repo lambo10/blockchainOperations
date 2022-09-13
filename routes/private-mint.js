@@ -47,7 +47,7 @@ router.get(
 
                 const options = {
                     value: ethers.utils.parseEther(req.query.cost),
-                    gasLimit: 3e7,
+                    gasLimit: 3e5,
                 }
 
                 let tx = await contractWithSigner.whiteListMint(req.query.id, req.query.amount, options);
