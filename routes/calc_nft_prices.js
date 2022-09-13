@@ -47,8 +47,8 @@ router.get("/", (req, res) => {
         res.json({
             prices: _prices,
             inWei: ethPricesInWEI(_prices),
-            totalBNBamountForEachNFT: calctotalBNBamountForEachNFT(prices),
-            totalAmounnt: calcTotalAmount(prices)
+            totalBNBamountForEachNFT: calctotalBNBamountForEachNFT(_prices),
+            totalAmounnt: calcTotalAmount(_prices)
         });
     } else {
         res.json({
