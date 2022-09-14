@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const fs = require("fs");
 const erc1155Abi = JSON.parse(fs.readFileSync("./erc1155.json", "utf8"));
@@ -35,7 +36,7 @@ router.get(
                 const web3 = new Web3(new Web3.providers.HttpProvider(rpc));
                 const erc1155Contract = new web3.eth.Contract(
                     erc1155Abi,
-                    req.query.contractaddress, {
+                    process.env.nft_contract_address, {
                         from: req.query.address,
                     }
                 );
