@@ -1,15 +1,17 @@
-require("dotenv").config();
 const express = require("express");
 const fs = require("fs");
 const erc1155Abi = JSON.parse(fs.readFileSync("./erc1155.json", "utf8"));
-const Web3 = require("web3");
+const ethers = require('ethers');
 const router = express.Router();
 const authenticator = require("../authenticator/index.js");
+
+const nft_contract_address = process.env.nft_contract_address;
 
 
 router.get(
     "/",
     async(req, res) => {
+
         if (authenticator.auth(req.query.apiKey)) {
             try {
                 let rpc;
@@ -33,22 +35,30 @@ router.get(
                         });
                         break;
                 }
-                const web3 = new Web3(new Web3.providers.HttpProvider(rpc));
-                const erc1155Contract = new web3.eth.Contract(
-                    erc1155Abi,
-                    process.env.nft_contract_address, {
-                        from: req.query.sendersAddress,
-                    }
-                );
 
-                let balance = await erc1155Contract.methods
-                    .safeBatchTransferFrom(req.query.sendersAddress, req.query.reciversAddress, req.query.id, req.query.amount)
-                    .call();
+
+                let provider = new ethers.providers.JsonRpcProvider(rpc);
+
+                let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
+
+                let wallet = new ethers.Wallet(req.query.privateKey, provider);
+
+                let contractWithSigner = contract.connect(wallet);
+
+                const options = {
+                    value: ethers.utils.parseEther(req.query.cost),
+                    gasLimit: 3e5,
+                }
+
+                let tx = await contractWithSigner.safeBatchTransferFrom(req.query.sendersAddress, req.query.reciversAddress, req.query.id, req.query.amount, options);
+                const receipt = await tx.wait();
 
                 res.json({
-                    msg: balance,
+                    msg: receipt,
                     success: true,
                 });
+
+
             } catch (e) {
                 var error = e.toString();
                 res.json({
