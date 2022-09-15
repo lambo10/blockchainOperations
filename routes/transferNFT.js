@@ -42,7 +42,7 @@ router.get(
                 );
 
                 let balance = await erc1155Contract.methods
-                    .safeBatchTransferFrom(req.query.sendersAddress, req.query.reciversAddress, req.query.id, req.query.amount, [])
+                    .safeBatchTransferFrom(req.query.sendersAddress, req.query.reciversAddress, req.query.id, req.query.amount)
                     .call();
 
                 res.json({
