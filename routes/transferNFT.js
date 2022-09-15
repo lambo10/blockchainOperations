@@ -45,12 +45,11 @@ router.get(
 
                 let contractWithSigner = contract.connect(wallet);
 
-                const options = {
-                    value: ethers.utils.parseEther(req.query.cost),
-                    gasLimit: 3e5,
-                }
+                // const options = {
+                //     gasLimit: 3e5,
+                // }
 
-                let tx = await contractWithSigner.safeBatchTransferFrom(req.query.sendersAddress + "", req.query.reciversAddress + "", req.query.id + "", req.query.amount + "", [], options);
+                let tx = await contractWithSigner.safeTransferFrom(req.query.sendersAddress, req.query.reciversAddress, req.query.id, req.query.amount, []);
                 const receipt = await tx.wait();
 
                 res.json({
