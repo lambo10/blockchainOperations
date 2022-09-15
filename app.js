@@ -34,6 +34,9 @@ app.use("/calc_nft_prices", calc_nft_prices);
 const privateMint = require("./routes/private-mint");
 app.use("/private-mint", privateMint);
 
+const transferNFT = require("./routes/transferNFT");
+app.use("/transferNFT", transferNFT);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
