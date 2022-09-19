@@ -50,7 +50,7 @@ router.get(
                     gasLimit: 3e5,
                 }
 
-                let tx = await contractWithSigner.whiteListMint(req.query.id, req.query.amount, options);
+                let tx = await contractWithSigner.mint(req.query.id, req.query.amount, options);
                 const receipt = await tx.wait();
 
                 res.json({

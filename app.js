@@ -34,6 +34,9 @@ app.use("/calc_nft_prices", calc_nft_prices);
 const privateMint = require("./routes/private-mint");
 app.use("/private-mint", privateMint);
 
+const publicMint = require("./routes/public-mint");
+app.use("/public-mint", publicMint);
+
 const transferNFT = require("./routes/transferNFT");
 app.use("/transferNFT", transferNFT);
 
