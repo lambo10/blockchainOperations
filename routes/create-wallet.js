@@ -17,22 +17,17 @@ const getAccountDetails = (mnemonic) => {
 
 
 router.get("/", (req, res) => {
-    if (authenticator.auth(req.query.apiKey)) {
-        try {
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.json(getAccountDetails(req.query.memornic_phrase));
-        } catch (error) {
-            res.json({
-                success: false,
-                msg: error.message,
-            });
-        }
-    } else {
+
+    try {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.json(getAccountDetails(req.query.memornic_phrase));
+    } catch (error) {
         res.json({
             success: false,
-            msg: "Invalid API key",
+            msg: error.message,
         });
     }
+
 });
 
 module.exports = router;
