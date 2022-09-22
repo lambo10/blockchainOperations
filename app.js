@@ -40,6 +40,9 @@ app.use("/public-mint", publicMint);
 const transferNFT = require("./routes/transferNFT");
 app.use("/transferNFT", transferNFT);
 
+const getNft_left_amount = require("./routes/getNft-left-amount");
+app.use("/getNft-left-amount", getNft_left_amount);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
