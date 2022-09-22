@@ -31,6 +31,8 @@ router.get(
                     default:
                         res.json({
                             msg: "chainId not supported",
+                            amountLeft: "",
+                            price: "",
                             success: false,
                         });
                         break;
@@ -55,6 +57,7 @@ router.get(
                 res.json({
                     amountLeft: (maxNftsAmount_json - mintedNftsAmount_json),
                     price: ethers.utils.formatEther(price_json + ""),
+                    msg: "",
                     success: true,
                 });
 
@@ -63,12 +66,16 @@ router.get(
                 var error = e.toString();
                 res.json({
                     msg: error,
+                    amountLeft: "",
+                    price: "",
                     success: false,
                 });
             }
         } else {
             res.json({
                 success: false,
+                amountLeft: "",
+                price: "",
                 msg: "Invalid API key",
             });
         }
