@@ -54,7 +54,7 @@ router.get(
 
                 res.json({
                     amountLeft: (maxNftsAmount_json - mintedNftsAmount_json),
-                    price: ethers.utils.formatEther(price_json),
+                    price: ethers.utils.formatEther(price_json + ""),
                     success: true,
                 });
 
