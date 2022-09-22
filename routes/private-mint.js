@@ -61,6 +61,13 @@ router.get(
 
             } catch (e) {
                 var error = e.toString();
+
+                if (error.split("[")[0] === "Error: insufficient funds for intrinsic transaction cost ") {
+                    res.json({
+                        msg: "Error: insufficient funds for intrinsic transaction cost ",
+                        success: false,
+                    });
+                }
                 res.json({
                     msg: error,
                     success: false,
