@@ -41,10 +41,16 @@ router.get(
 
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
-                let maxNftsAmount = contract.maxNftsAmount[parseInt(req.query.id)];
+                let maxNftsAmount = await contract.maxNftsAmount(req.query.id);
+                let maxNftsAmount_json = JSON.parse(maxNftsAmount);
+
+                let mintedNftsAmount = await contract.mintedNftsAmount(req.query.id);
+                let mintedNftsAmount_json = JSON.parse(mintedNftsAmount);
+
+
 
                 res.json({
-                    msg: maxNftsAmount,
+                    msg: (maxNftsAmount_json - mintedNftsAmount_json),
                     success: true,
                 });
 
