@@ -43,6 +43,9 @@ app.use("/transferNFT", transferNFT);
 const getNft_left_amount_and_price = require("./routes/getNft-left-amount-and-price");
 app.use("/getNft-left-amount-and-price", getNft_left_amount_and_price);
 
+const get_bnb_balance = require("./routes/get-bnb-balance");
+app.use("/get-bnb-balance", get_bnb_balance);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
