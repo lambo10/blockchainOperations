@@ -174,6 +174,33 @@
     },
     {
         "inputs": [{
+                "internalType": "uint256[]",
+                "name": "player1destructionlist",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "player2destructionlist",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address",
+                "name": "player1",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "player2",
+                "type": "address"
+            }
+        ],
+        "name": "payWinnings",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
             "internalType": "address",
             "name": "user",
             "type": "address"
@@ -188,6 +215,23 @@
         "name": "renounceOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "revive",
+        "outputs": [],
+        "stateMutability": "payable",
         "type": "function"
     },
     {
@@ -362,11 +406,32 @@
     },
     {
         "inputs": [],
-        "name": "gameContract",
+        "name": "gameDevWallet",
         "outputs": [{
             "internalType": "address payable",
             "name": "",
             "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            }
+        ],
+        "name": "getPlayerNftAmount",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
         }],
         "stateMutability": "view",
         "type": "function"
@@ -399,6 +464,54 @@
                 "type": "address"
             },
             {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            }
+        ],
+        "name": "getPlayerNftTotalHealth",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "holders",
+        "outputs": [{
+                "internalType": "uint256",
+                "name": "totalHealth",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            },
+            {
                 "internalType": "address",
                 "name": "operator",
                 "type": "address"
@@ -415,62 +528,22 @@
     },
     {
         "inputs": [],
-        "name": "MaxBabyDragon_per_player",
+        "name": "marketing_contestWallet",
         "outputs": [{
-            "internalType": "uint256",
+            "internalType": "address payable",
             "name": "",
-            "type": "uint256"
+            "type": "address"
         }],
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "MaxDragon_per_player",
-        "outputs": [{
+        "inputs": [{
             "internalType": "uint256",
             "name": "",
             "type": "uint256"
         }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "MaxDrone_per_player",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "MaxGolem_per_player",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "MaxGrandWarden_per_player",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "MaxLand_per_player",
+        "name": "max_nfts_amount",
         "outputs": [{
             "internalType": "uint256",
             "name": "",
@@ -486,28 +559,6 @@
             "type": "uint256"
         }],
         "name": "maxNftsAmount",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "MaxStoneWall_per_player",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "MaxWoodWall_per_player",
         "outputs": [{
             "internalType": "uint256",
             "name": "",
@@ -581,6 +632,17 @@
     },
     {
         "inputs": [],
+        "name": "pancakeswapV2Router",
+        "outputs": [{
+            "internalType": "contract IPancakeRouter02",
+            "name": "",
+            "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "PublicMint",
         "outputs": [{
             "internalType": "bool",
@@ -603,17 +665,6 @@
             }
         ],
         "name": "singlePlayeramount",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "spMaxNftAmount_perNft",
         "outputs": [{
             "internalType": "uint256",
             "name": "",
