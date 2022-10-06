@@ -46,6 +46,12 @@ app.use("/getNft-left-amount-and-price", getNft_left_amount_and_price);
 const get_bnb_balance = require("./routes/get-bnb-balance");
 app.use("/get-bnb-balance", get_bnb_balance);
 
+const pay_winnings = require("./routes/pay-winnings");
+app.use("/pay-winnings", pay_winnings);
+
+const claim_tokens = require("./routes/claim-tokens");
+app.use("/claim-tokens", claim_tokens);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));

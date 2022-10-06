@@ -143,6 +143,13 @@
     },
     {
         "inputs": [],
+        "name": "claimTokens",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "endMint",
         "outputs": [],
         "stateMutability": "nonpayable",
@@ -153,6 +160,23 @@
         "name": "endPrivatetMint",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "landMintFirstRound",
+        "outputs": [],
+        "stateMutability": "payable",
         "type": "function"
     },
     {
@@ -196,7 +220,7 @@
         ],
         "name": "payWinnings",
         "outputs": [],
-        "stateMutability": "nonpayable",
+        "stateMutability": "payable",
         "type": "function"
     },
     {
@@ -341,6 +365,11 @@
         "type": "function"
     },
     {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
         "inputs": [{
                 "internalType": "uint256",
                 "name": "id",
@@ -356,11 +385,6 @@
         "outputs": [],
         "stateMutability": "payable",
         "type": "function"
-    },
-    {
-        "inputs": [],
-        "stateMutability": "nonpayable",
-        "type": "constructor"
     },
     {
         "inputs": [{
@@ -711,6 +735,17 @@
         "type": "function"
     },
     {
+        "inputs": [],
+        "name": "testA",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [{
             "internalType": "uint256",
             "name": "",
@@ -721,6 +756,21 @@
             "internalType": "string",
             "name": "",
             "type": "string"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+        }],
+        "name": "winnings",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
         }],
         "stateMutability": "view",
         "type": "function"
