@@ -41,7 +41,7 @@ router.get(
 
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
-                let NftTotalHealth = await contract.getPlayerNftTotalHealth(req.query.id);
+                let NftTotalHealth = await contract.getPlayerNftTotalHealth(req.query.address, req.query.id);
                 let NftTotalHealth_json = JSON.parse(NftTotalHealth);
 
                 let price = await contract.nftMintPrice(req.query.id);
