@@ -52,6 +52,9 @@ app.use("/pay-winnings", pay_winnings);
 const claim_tokens = require("./routes/claim-tokens");
 app.use("/claim-tokens", claim_tokens);
 
+const get_alive_nfts = require("./routes/get-alive-nfts");
+app.use("/get-alive-nfts", get_alive_nfts);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
