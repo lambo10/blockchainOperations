@@ -37,17 +37,17 @@ router.get(
                 }
 
 
-                let provider = new ethers.providers.JsonRpcProvider(rpc);
+                // let provider = new ethers.providers.JsonRpcProvider(rpc);
 
-                let contract = new ethers.Contract(token_contract_address, tokenABI, provider);
+                // let contract = new ethers.Contract(token_contract_address, tokenABI, provider);
 
-                let totalGverseToken = await contract.getPlayerNftTotalHealth(req.query.address, req.query.id);
-                let totalGverseToken_json = JSON.parse(totalGverseToken);
+                // let totalGverseToken = await contract.getPlayerNftTotalHealth(req.query.address, req.query.id);
+                // let totalGverseToken_json = JSON.parse(totalGverseToken);
 
-                res.json({
-                    msg: totalGverseToken_json + "",
-                    success: true,
-                });
+                // res.json({
+                //     msg: totalGverseToken_json + "",
+                //     success: true,
+                // });
 
 
             } catch (e) {
