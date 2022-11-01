@@ -1,6 +1,6 @@
 const express = require("express");
 const fs = require("fs");
-const tokenABI = JSON.parse(fs.readFileSync("./tokenABI.json", "utf8"));
+// const tokenABI = JSON.parse(fs.readFileSync("./tokenABI.json", "utf8"));
 const ethers = require('ethers');
 const router = express.Router();
 const authenticator = require("../authenticator/index.js");
