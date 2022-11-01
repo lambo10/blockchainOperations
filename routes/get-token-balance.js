@@ -45,7 +45,7 @@ router.get(
                 let totalGverseToken_json = JSON.parse(totalGverseToken);
 
                 res.json({
-                    msg: totalGverseToken_json + "",
+                    msg: ethers.utils.formatEther(totalGverseToken_json + ""),
                     success: true,
                 });
 
