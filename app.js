@@ -55,6 +55,9 @@ app.use("/claim-tokens", claim_tokens);
 const get_alive_nfts = require("./routes/get-alive-nfts");
 app.use("/get-alive-nfts", get_alive_nfts);
 
+const get_token_balance = require("./routes/get-token-balance");
+app.use("/get-token-balance", get_token_balance);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
