@@ -41,7 +41,7 @@ router.get(
 
                 let contract = new ethers.Contract(token_contract_address, tokenABI, provider);
 
-                let totalGverseToken = await contract.getPlayerNftTotalHealth(req.query.address, req.query.id);
+                let totalGverseToken = await contract.balanceOf(req.query.address);
                 let totalGverseToken_json = JSON.parse(totalGverseToken);
 
                 res.json({
