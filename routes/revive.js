@@ -35,26 +35,23 @@ router.get(
                         });
                         break;
                 }
-                console.log(req.query.chainId + "-----------");
+
 
                 let provider = new ethers.providers.JsonRpcProvider(rpc);
 
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
-                let wallet = new ethers.Wallet(req.query.privateKey, provider);
+                let wallet = new ethers.Wallet(process.env.ownerWalletPrivateKet, provider);
 
                 let contractWithSigner = contract.connect(wallet);
 
                 const options = {
-                    value: ethers.utils.parseEther("0"),
+                    value: ethers.utils.parseEther(req.query.cost),
                     gasLimit: 3e5,
                 }
 
-                let player1destructionlist = JSON.parse(req.query.player1destructionlist);
-                let player2destructionlist = JSON.parse(req.query.player2destructionlist);
-
-                let tx = await contractWithSigner.payWinnings(player1destructionlist, player2destructionlist, req.query.player1Address, req.query.player2Address, options);
-                let receipt = await tx.wait();
+                let tx = await contractWithSigner.revive(req.query.id, req.query.amount, options);
+                const receipt = await tx.wait();
 
                 res.json({
                     msg: receipt,

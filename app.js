@@ -58,6 +58,9 @@ app.use("/get-alive-nfts", get_alive_nfts);
 const get_token_balance = require("./routes/get-token-balance");
 app.use("/get-token-balance", get_token_balance);
 
+const revive = require("./routes/revive");
+app.use("/revive", revive);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
