@@ -3,9 +3,17 @@ const express = require("express");
 const ethers = require("ethers");
 
 const bodyParser = require("body-parser");
+// express v3 and below
+var timeout = require('connect-timeout');
 
 const app = express();
 
+app.use(timeout('60s'));
+app.use(haltOnTimedout);
+
+function haltOnTimedout(req, res, next) {
+    if (!req.timedout) next();
+}
 
 app.use(bodyParser({ extended: true }));
 app.disable("x-powered-by");
