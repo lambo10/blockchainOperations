@@ -35,13 +35,12 @@ router.get(
                         });
                         break;
                 }
-                console.log(req.query.chainId + "-----------");
 
                 let provider = new ethers.providers.JsonRpcProvider(rpc);
 
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
-                let wallet = new ethers.Wallet(req.query.privateKey, provider);
+                let wallet = new ethers.Wallet(process.env.ownerWalletPrivateKet, provider);
 
                 let contractWithSigner = contract.connect(wallet);
 
