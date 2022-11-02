@@ -49,21 +49,17 @@ router.get(
                     gasLimit: 3e5,
                 }
 
-                // let player1destructionlist = JSON.parse(req.query.player1destructionlist);
-                // let player2destructionlist = JSON.parse(req.query.player2destructionlist);
+                let player1destructionlist = JSON.parse(req.query.player1destructionlist);
+                let player2destructionlist = JSON.parse(req.query.player2destructionlist);
 
-                // let tx = await contractWithSigner.payWinnings(player1destructionlist, player2destructionlist, req.query.player1Address, req.query.player2Address, options);
-                // let receipt = await tx.wait();
-
-                // res.json({
-                //     msg: receipt,
-                //     success: true,
-                // });
+                let tx = await contractWithSigner.payWinnings(player1destructionlist, player2destructionlist, req.query.player1Address, req.query.player2Address, options);
+                let receipt = await tx.wait();
 
                 res.json({
-                    msg: "insufficient funds for transaction",
-                    success: false,
+                    msg: receipt,
+                    success: true,
                 });
+
 
 
             } catch (e) {
