@@ -8,7 +8,7 @@ var timeout = require('connect-timeout');
 
 const app = express();
 
-app.use(timeout('60s'));
+app.use(timeout('120s'));
 app.use(haltOnTimedout);
 
 function haltOnTimedout(req, res, next) {
