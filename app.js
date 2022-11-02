@@ -69,6 +69,9 @@ app.use("/get-token-balance", get_token_balance);
 const revive = require("./routes/revive");
 app.use("/revive", revive);
 
+const landMint = require("./routes/land-mint");
+app.use("/land-mint", landMint);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
