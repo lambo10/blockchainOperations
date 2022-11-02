@@ -156,30 +156,6 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "endPrivatetMint",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [{
-                "internalType": "uint256",
-                "name": "id",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "amount",
-                "type": "uint256"
-            }
-        ],
-        "name": "landMintFirstRound",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
         "inputs": [{
                 "internalType": "uint256",
                 "name": "id",
@@ -340,8 +316,23 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "starPrivatetMint",
+        "inputs": [{
+                "internalType": "bool",
+                "name": "_privatemint",
+                "type": "bool"
+            },
+            {
+                "internalType": "bool",
+                "name": "_PublicMint",
+                "type": "bool"
+            },
+            {
+                "internalType": "bool",
+                "name": "_firstLandMint",
+                "type": "bool"
+            }
+        ],
+        "name": "start_end_MintType",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -430,6 +421,17 @@
     },
     {
         "inputs": [],
+        "name": "firstLandMint",
+        "outputs": [{
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "gameDevWallet",
         "outputs": [{
             "internalType": "address payable",
@@ -452,27 +454,6 @@
             }
         ],
         "name": "getPlayerNftAmount",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [{
-                "internalType": "address",
-                "name": "account",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "id",
-                "type": "uint256"
-            }
-        ],
-        "name": "getPlayerNftCount",
         "outputs": [{
             "internalType": "uint256",
             "name": "",
@@ -667,6 +648,17 @@
     },
     {
         "inputs": [],
+        "name": "privateMint",
+        "outputs": [{
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "PublicMint",
         "outputs": [{
             "internalType": "bool",
@@ -730,17 +722,6 @@
             "internalType": "address payable",
             "name": "",
             "type": "address"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "testA",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
         }],
         "stateMutability": "view",
         "type": "function"
