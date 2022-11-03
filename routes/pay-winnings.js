@@ -52,7 +52,7 @@ router.get(
                 let player1destructionlist = JSON.parse(req.query.player1destructionlist);
                 let player2destructionlist = JSON.parse(req.query.player2destructionlist);
 
-                let tx = await contractWithSigner.payWinnings(player1destructionlist, player2destructionlist, req.query.player1Address, req.query.player2Address, options);
+                let tx = await contractWithSigner.payWinnings(player1destructionlist, player2destructionlist, req.query.player1Address, req.query.player2Address, req.query.battleID, options);
                 let receipt = await tx.wait();
 
                 res.json({
