@@ -3,13 +3,13 @@ const express = require("express");
 const ethers = require("ethers");
 
 const bodyParser = require("body-parser");
-// express v3 and below
-var timeout = require('connect-timeout');
+
+// var timeout = require('connect-timeout');
 
 const app = express();
 
-app.use(timeout('240s'));
-app.use(haltOnTimedout);
+// app.use(timeout('240s'));
+// app.use(haltOnTimedout);
 
 function haltOnTimedout(req, res, next) {
     if (!req.timedout) next();
