@@ -68,8 +68,12 @@ router.get(
                         success: false,
                     });
                 }
-                if (error.split("[")[0] === "Error: replacement fee too low ") {
 
+                if (error.split("[")[0] === "Error: replacement fee too low ") {
+                    res.json({
+                        msg: "rE",
+                        success: false,
+                    });
                 }
 
 

@@ -72,13 +72,16 @@ router.get(
 
 
                 if (error.split("[")[0] === "Error: replacement fee too low ") {
-
+                    res.json({
+                        msg: "rE",
+                        success: false,
+                    });
                 }
 
 
                 if (error.split("[")[0] === "Error: transaction failed ") {
                     res.json({
-                        msg: "Error: transaction failed",
+                        msg: "Error: transaction failed pls try again",
                         success: false,
                     });
                 }
