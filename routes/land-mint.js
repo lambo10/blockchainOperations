@@ -57,6 +57,7 @@ router.get(
                     msg: receipt,
                     success: true,
                 });
+                res.end();
 
 
             } catch (e) {
@@ -68,10 +69,19 @@ router.get(
                         success: false,
                     });
                 }
-                res.json({
-                    msg: error,
-                    success: false,
-                });
+                if (error.split("[")[0] === "Error: replacement fee too low ") {
+
+                }
+
+
+                if (error.split("[")[0] === "Error: transaction failed ") {
+                    res.json({
+                        msg: "Error: transaction failed",
+                        success: false,
+                    });
+                }
+
+                res.end();
             }
         } else {
             res.json({
