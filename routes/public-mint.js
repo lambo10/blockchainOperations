@@ -57,6 +57,7 @@ router.get(
                     msg: receipt,
                     success: true,
                 });
+                res.end();
 
 
             } catch (e) {
@@ -69,10 +70,14 @@ router.get(
                     });
                 }
 
+
+
                 res.json({
                     msg: error,
                     success: false,
                 });
+
+                res.end();
             }
         } else {
             res.json({
