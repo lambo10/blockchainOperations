@@ -192,6 +192,11 @@
                 "internalType": "address",
                 "name": "player2",
                 "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "battleID",
+                "type": "string"
             }
         ],
         "name": "payWinnings",
@@ -387,6 +392,21 @@
             "internalType": "uint256[]",
             "name": "",
             "type": "uint256[]"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "string",
+            "name": "battleID",
+            "type": "string"
+        }],
+        "name": "check_paymentConfirmations",
+        "outputs": [{
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
         }],
         "stateMutability": "view",
         "type": "function"
@@ -625,6 +645,21 @@
             "internalType": "contract IPancakeRouter02",
             "name": "",
             "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+        }],
+        "name": "paymentConfirmations",
+        "outputs": [{
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
         }],
         "stateMutability": "view",
         "type": "function"
