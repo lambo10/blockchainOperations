@@ -11,9 +11,9 @@ const app = express();
 // app.use(timeout('240s'));
 // app.use(haltOnTimedout);
 
-function haltOnTimedout(req, res, next) {
-    if (!req.timedout) next();
-}
+// function haltOnTimedout(req, res, next) {
+//     if (!req.timedout) next();
+// }
 
 app.use(bodyParser({ extended: true }));
 app.disable("x-powered-by");
