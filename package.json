@@ -5,7 +5,10 @@
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "pm2-runtime start ecosystem.config.js --env production"
+        "start": "pm2-runtime start ecosystem.config.js --env production",
+        "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
+        "build": "NODE_OPTIONS=--openssl-legacy-provider next build && next export",
+
     },
     "author": "Lambert Nnadi",
     "license": "ISC",
@@ -19,8 +22,5 @@
         "moralis": "^1.11.0",
         "pm2": "^5.2.0",
         "web3": "^1.7.4"
-    },
-    "engines": {
-        "node": "17.x"
     }
 }
