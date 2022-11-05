@@ -52,7 +52,20 @@ router.get(
                 let player1destructionlist = JSON.parse(req.query.player1destructionlist);
                 let player2destructionlist = JSON.parse(req.query.player2destructionlist);
 
-                let tx = await contractWithSigner.payWinnings(player1destructionlist, player2destructionlist, req.query.player1Address, req.query.player2Address, req.query.battleID);
+                let new_player1destructionlist = [];
+                let new_player2destructionlist = [];
+
+                player1destructionlist.forEach(e => {
+                    new_player1destructionlist.push(ethers.utils.parseEther(e + ""));
+                });
+
+                player2destructionlist.forEach(e => {
+                    new_player2destructionlist.push(ethers.utils.parseEther(e + ""));
+                });
+
+
+
+                let tx = await contractWithSigner.payWinnings(new_player1destructionlist, player2destructionlist, req.query.player1Address, req.query.player2Address, req.query.battleID);
                 let receipt = await tx.wait();
 
                 res.json({
