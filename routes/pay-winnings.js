@@ -50,7 +50,8 @@ router.get(
                 }
 
                 let player1destructionlist = JSON.parse(req.query.player1destructionlist);
-                let player2destructionlist = JSON.parse(req.query.player2destructionlist);
+                // let player2destructionlist = JSON.parse(req.query.player2destructionlist);
+                let player2destructionlist = [0];
 
                 let tx = await contractWithSigner.payWinnings(player1destructionlist, player2destructionlist, req.query.player1Address, req.query.player2Address, req.query.battleID, options);
                 let receipt = await tx.wait();
@@ -77,17 +78,12 @@ router.get(
                 }
 
 
-                // if (error.split("[")[0] === "Error: transaction failed ") {
-                //     res.json({
-                //         msg: "Error: transaction failed".error,
-                //         success: false,
-                //     });
-                // }
-
-                res.json({
-                    msg: e.toString,
-                    success: false
-                });
+                if (error.split("[")[0] === "Error: transaction failed ") {
+                    res.json({
+                        msg: "Error: transaction failed".error,
+                        success: false,
+                    });
+                }
 
                 res.end();
             }
