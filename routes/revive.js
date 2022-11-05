@@ -50,7 +50,7 @@ router.get(
                     gasLimit: 3e5,
                 }
 
-                let tx = await contractWithSigner.revive(req.query.id, req.query.amount, options);
+                let tx = await contractWithSigner.revive(req.query.id, ethers.utils.parseEther(req.query.amount), options);
                 const receipt = await tx.wait();
 
                 res.json({
@@ -68,8 +68,7 @@ router.get(
                         success: false,
                     });
                 }
-                console.log(e);
-                console.log(error);
+
                 res.json({
                     msg: error,
                     success: false,
