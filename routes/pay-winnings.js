@@ -85,18 +85,11 @@ router.get(
                         success: false,
                     });
                 }
-                if (error.split("[")[0] === "Error: replacement fee too low ") {
 
-                }
-
-
-
-                if (error.split("[")[0] === "Error: transaction failed ") {
-                    res.json({
-                        msg: "Error: transaction failed".e,
-                        success: false,
-                    });
-                }
+                res.json({
+                    msg: error,
+                    success: false,
+                });
 
                 res.end();
             }
