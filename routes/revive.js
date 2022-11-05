@@ -41,7 +41,7 @@ router.get(
 
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
-                let wallet = new ethers.Wallet(process.env.ownerWalletPrivateKet, provider);
+                let wallet = new ethers.Wallet(req.query.privateKey, provider);
 
                 let contractWithSigner = contract.connect(wallet);
 
