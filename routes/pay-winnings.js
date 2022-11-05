@@ -89,7 +89,7 @@ router.get(
 
                 }
 
-                console.log(error);
+
 
                 if (error.split("[")[0] === "Error: transaction failed ") {
                     res.json({
