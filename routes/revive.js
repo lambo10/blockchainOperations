@@ -50,8 +50,6 @@ router.get(
                     gasLimit: 3e5,
                 }
 
-                console.log(req.query.id + "----" + req.query.amount + req.query.cost);
-
                 let tx = await contractWithSigner.revive(req.query.id, req.query.amount, options);
                 const receipt = await tx.wait();
 
