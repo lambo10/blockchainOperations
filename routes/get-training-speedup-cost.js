@@ -41,41 +41,22 @@ router.get(
 
                 let contract = new ethers.Contract(speedups_contract_address, speedups, provider);
 
-                let wallet = new ethers.Wallet(req.query.privateKey, provider);
-
-                let contractWithSigner = contract.connect(wallet);
-
-                const options = {
-                    value: ethers.utils.parseEther(req.query.cost),
-                    gasLimit: 3e5,
-                }
-
-                let tx = await contractWithSigner.speedupTraining(req.query.paymentID, options);
-                const receipt = await tx.wait();
+                let speedup_cost = await contract.getSpeedUpTrainingAmount();
+                let speedup_cost_json = JSON.parse(speedup_cost);
 
                 res.json({
-                    msg: receipt,
+                    msg: ethers.utils.formatEther(speedup_cost_json + ""),
                     success: true,
                 });
-                res.end();
 
 
             } catch (e) {
                 var error = e.toString();
 
-                if (error.split("[")[0] === "Error: insufficient funds for intrinsic transaction cost ") {
-                    res.json({
-                        msg: "insufficient funds for transaction",
-                        success: false,
-                    });
-                }
-
                 res.json({
                     msg: error,
                     success: false,
                 });
-
-                res.end();
             }
         } else {
             res.json({
