@@ -72,6 +72,9 @@ app.use("/revive", revive);
 const landMint = require("./routes/land-mint");
 app.use("/land-mint", landMint);
 
+const training_speedup = require("./routes/training-speedup");
+app.use("/training-speedup", training_speedup);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
