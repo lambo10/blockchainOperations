@@ -41,7 +41,7 @@ router.get(
 
                 let contract = new ethers.Contract(speedups_contract_address, speedups, provider);
 
-                let speedup_cost = await contract.getSpeedUpTrainingAmount();
+                let speedup_cost = await contract.speedUpTrainingAmount();
                 let speedup_cost_json = JSON.parse(speedup_cost);
 
                 res.json({
