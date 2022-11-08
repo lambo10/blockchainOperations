@@ -50,7 +50,7 @@ router.get(
                     gasLimit: 3e5,
                 }
 
-                let tx = await contractWithSigner.speedupTraining(req.query.paymentID, options);
+                let tx = await contractWithSigner.speedupConstruction(req.query.paymentID, options);
                 const receipt = await tx.wait();
 
                 res.json({
