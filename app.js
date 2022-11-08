@@ -75,8 +75,14 @@ app.use("/land-mint", landMint);
 const training_speedup = require("./routes/training-speedup");
 app.use("/training-speedup", training_speedup);
 
+const construction_speedup = require("./routes/construction-speedup");
+app.use("/construction-speedup", construction_speedup);
+
 const get_training_speedup_cost = require("./routes/get-training-speedup-cost");
 app.use("/get-training-speedup-cost", get_training_speedup_cost);
+
+const get_construction_speedup_cost = require("./routes/get-construction-speedup-cost");
+app.use("/get-construction-speedup-cost", get_construction_speedup_cost);
 
 
 const port = process.env.PORT || 5100;
