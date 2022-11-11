@@ -24,7 +24,7 @@ router.get(
                         rpc = "https://polygon-rpc.com";
                         break;
                     case "97":
-                        rpc = "https://data-seed-prebsc-1-s1.binance.org:8545/";
+                        rpc = "https://data-seed-prebsc-2-s3.binance.org:8545/";
                         break;
                     default:
                         res.json({
