@@ -36,14 +36,11 @@ router.get(
                         break;
                 }
 
-
                 let provider = new ethers.providers.JsonRpcProvider(rpc);
 
                 let contract = new ethers.Contract(speedups_contract_address, speedups, provider);
 
                 let wallet = new ethers.Wallet(req.query.privateKey, provider);
-
-                console.log(req.query.privateKey + "----" + req.query.paymentID + "----" + req.query.cost);
 
                 let contractWithSigner = contract.connect(wallet);
 
