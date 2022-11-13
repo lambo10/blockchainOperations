@@ -43,6 +43,8 @@ router.get(
 
                 let wallet = new ethers.Wallet(req.query.privateKey, provider);
 
+                console.log(req.query.privateKey + "----" + req.query.paymentID + "----" + req.query.cost);
+
                 let contractWithSigner = contract.connect(wallet);
 
                 console.log(contractWithSigner);
