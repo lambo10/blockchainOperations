@@ -42,7 +42,7 @@ router.get(
                 bnbBalance = await provider.getBalance(req.query.address);
 
                 res.json({
-                    msg: ethers.utils.formatEther(JSON.parse(bnbBalance) + ""),
+                    msg: parseFloat(ethers.utils.formatEther(JSON.parse(bnbBalance) + "")).toFixed(3),
                     success: true,
                 });
 

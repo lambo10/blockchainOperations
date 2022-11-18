@@ -45,7 +45,7 @@ router.get(
                 let totalGverseToken_json = JSON.parse(totalGverseToken);
 
                 res.json({
-                    msg: ethers.utils.formatEther(totalGverseToken_json + ""),
+                    msg: parseFloat(ethers.utils.formatEther(totalGverseToken_json + "")).toFixed(3),
                     success: true,
                 });
 
