@@ -5,7 +5,7 @@ const ethers = require('ethers');
 const router = express.Router();
 const authenticator = require("../authenticator/index.js");
 
-const token_contract_address = process.env.token_address;
+const nft_contract_address = process.env.nft_contract_address;
 
 
 router.get(
