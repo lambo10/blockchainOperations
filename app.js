@@ -84,6 +84,9 @@ app.use("/get-training-speedup-cost", get_training_speedup_cost);
 const get_construction_speedup_cost = require("./routes/get-construction-speedup-cost");
 app.use("/get-construction-speedup-cost", get_construction_speedup_cost);
 
+const get_unclaimed_tokens = require("./routes/get-unclaimed-tokens");
+app.use("/get-unclaimed-tokens", get_unclaimed_tokens);
+
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
