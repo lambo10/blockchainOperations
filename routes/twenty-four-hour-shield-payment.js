@@ -1,11 +1,11 @@
 const express = require("express");
 const fs = require("fs");
-const erc1155Abi = JSON.parse(fs.readFileSync("./erc1155.json", "utf8"));
+const speedups = JSON.parse(fs.readFileSync("./speedups.json", "utf8"));
 const ethers = require('ethers');
 const router = express.Router();
 const authenticator = require("../authenticator/index.js");
 
-const nft_contract_address = process.env.nft_contract_address;
+const speedups_contract_address = process.env.speedups_contract_address;
 
 
 router.get(
@@ -39,21 +39,20 @@ router.get(
 
                 let provider = new ethers.providers.JsonRpcProvider(rpc);
 
-                let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
+                let contract = new ethers.Contract(speedups_contract_address, speedups, provider);
 
                 let wallet = new ethers.Wallet(req.query.privateKey, provider);
 
                 let contractWithSigner = contract.connect(wallet);
+
+                console.log(contractWithSigner);
 
                 const options = {
                     value: ethers.utils.parseEther(req.query.cost),
                     gasLimit: 3e5,
                 }
 
-                let tx1 = await contractWithSigner.makeMintPayment(req.query.id, options);
-                const receipt1 = await tx1.wait();
-
-                let tx = await contractWithSigner.mintLand(req.query.amount);
+                let tx = await contractWithSigner.twentyFourHourShield_payment(req.query.paymentID, options);
                 const receipt = await tx.wait();
 
                 res.json({

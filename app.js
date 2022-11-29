@@ -87,6 +87,11 @@ app.use("/get-construction-speedup-cost", get_construction_speedup_cost);
 const get_unclaimed_tokens = require("./routes/get-unclaimed-tokens");
 app.use("/get-unclaimed-tokens", get_unclaimed_tokens);
 
+const start_end_battle = require("./routes/start-end-battle");
+app.use("/start-end-battle", start_end_battle);
+
+const twenty_four_hour_shield_payment = require("./routes/twenty-four-hour-shield-payment");
+app.use("/twenty-four-hour-shield-payment", twenty_four_hour_shield_payment);
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));

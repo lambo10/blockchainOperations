@@ -37,6 +37,7 @@ router.get(
                 }
 
 
+
                 let provider = new ethers.providers.JsonRpcProvider(rpc);
 
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
@@ -50,11 +51,18 @@ router.get(
                     gasLimit: 3e5,
                 }
 
-                let tx = await contractWithSigner.mint(req.query.id, req.query.amount, options);
+
+
+                // let tx = await contractWithSigner.mint(req.query.id, req.query.amount, options);
+                let tx1 = await contractWithSigner.makeMintPayment(req.query.id, options);
+                const receipt1 = await tx1.wait();
+
+                let tx = await contractWithSigner.mint(req.query.id, req.query.amount);
                 const receipt = await tx.wait();
 
                 res.json({
                     msg: receipt,
+                    msg1: receipt1,
                     success: true,
                 });
                 res.end();

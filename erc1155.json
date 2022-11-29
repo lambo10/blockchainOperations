@@ -131,12 +131,15 @@
         "type": "event"
     },
     {
-        "inputs": [{
-            "internalType": "uint256",
-            "name": "_value",
-            "type": "uint256"
-        }],
-        "name": "busdPurchase",
+        "inputs": [],
+        "name": "approveBusdExpenditure",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "buyBusd",
         "outputs": [],
         "stateMutability": "payable",
         "type": "function"
@@ -145,14 +148,18 @@
         "inputs": [],
         "name": "claimTokens",
         "outputs": [],
-        "stateMutability": "payable",
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "endMint",
+        "inputs": [{
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+        }],
+        "name": "makeMintPayment",
         "outputs": [],
-        "stateMutability": "nonpayable",
+        "stateMutability": "payable",
         "type": "function"
     },
     {
@@ -169,18 +176,7 @@
         ],
         "name": "mint",
         "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "inputs": [{
-            "internalType": "uint256",
-            "name": "amount",
-            "type": "uint256"
-        }],
-        "name": "mintLand",
-        "outputs": [],
-        "stateMutability": "payable",
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
@@ -196,7 +192,12 @@
             },
             {
                 "internalType": "address",
-                "name": "player",
+                "name": "player1",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "player2",
                 "type": "address"
             },
             {
@@ -334,6 +335,50 @@
     },
     {
         "inputs": [{
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "setNftsMintableAmount",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "address",
+                "name": "opponent",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "battleID",
+                "type": "string"
+            },
+            {
+                "internalType": "bool",
+                "name": "startBattle",
+                "type": "bool"
+            }
+        ],
+        "name": "start_end_battle",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "bool",
+                "name": "_mintValue",
+                "type": "bool"
+            },
+            {
                 "internalType": "bool",
                 "name": "_PublicMint",
                 "type": "bool"
@@ -342,21 +387,9 @@
                 "internalType": "bool",
                 "name": "_LandMint",
                 "type": "bool"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_landMintingPrice",
-                "type": "uint256"
             }
         ],
         "name": "start_end_MintType",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "startMint",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -421,6 +454,58 @@
     },
     {
         "inputs": [{
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "name": "battleReqs",
+        "outputs": [{
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+        }],
+        "name": "battles",
+        "outputs": [{
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "busd_token",
+        "outputs": [{
+            "internalType": "contract IERC20",
+            "name": "",
+            "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
                 "internalType": "string",
                 "name": "battleID",
                 "type": "string"
@@ -446,44 +531,33 @@
         "type": "function"
     },
     {
+        "inputs": [{
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "current_purchase_balances",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "gameDevWallet",
         "outputs": [{
             "internalType": "address payable",
             "name": "",
             "type": "address"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getBNBprice",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [{
-                "internalType": "address",
-                "name": "account",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "id",
-                "type": "uint256"
-            }
-        ],
-        "name": "getPlayerNftAmount",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
         }],
         "stateMutability": "view",
         "type": "function"
@@ -505,6 +579,17 @@
             "internalType": "uint256",
             "name": "",
             "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "greedyverse_token",
+        "outputs": [{
+            "internalType": "contract IERC20",
+            "name": "",
+            "type": "address"
         }],
         "stateMutability": "view",
         "type": "function"
@@ -570,17 +655,6 @@
     },
     {
         "inputs": [],
-        "name": "landMintingPrice",
-        "outputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
         "name": "marketing_contestWallet",
         "outputs": [{
             "internalType": "address payable",
@@ -597,6 +671,17 @@
             "type": "uint256"
         }],
         "name": "max_nfts_amount",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "maxLand",
         "outputs": [{
             "internalType": "uint256",
             "name": "",

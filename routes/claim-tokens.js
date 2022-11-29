@@ -45,12 +45,7 @@ router.get(
 
                 let contractWithSigner = contract.connect(wallet);
 
-                const options = {
-                    value: ethers.utils.parseEther('0'),
-                    gasLimit: 3e5,
-                }
-
-                tx = await contractWithSigner.claimTokens(options);
+                tx = await contractWithSigner.claimTokens();
                 receipt = await tx.wait();
 
                 res.json({
@@ -76,7 +71,7 @@ router.get(
 
                 if (error.split("[")[0] === "Error: transaction failed ") {
                     res.json({
-                        msg: "Error: transaction failed",
+                        msg: error,
                         success: false,
                     });
                 }

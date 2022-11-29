@@ -45,15 +45,12 @@ router.get(
 
                 let contractWithSigner = contract.connect(wallet);
 
-                const options = {
-                    value: ethers.utils.parseEther(req.query.cost),
-                    gasLimit: 3e5,
+                let startBattle = false;
+                if (req.query.startBattle === "true") {
+                    startBattle = true;
                 }
 
-                let tx1 = await contractWithSigner.makeMintPayment(req.query.id, options);
-                const receipt1 = await tx1.wait();
-
-                let tx = await contractWithSigner.mintLand(req.query.amount);
+                let tx = await contractWithSigner.start_end_battle(req.query.opponentAddr, req.query.battleID, startBattle);
                 const receipt = await tx.wait();
 
                 res.json({

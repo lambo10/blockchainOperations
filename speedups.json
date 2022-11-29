@@ -47,6 +47,17 @@
     },
     {
         "inputs": [{
+            "internalType": "uint256",
+            "name": "_twentyFourHourShield",
+            "type": "uint256"
+        }],
+        "name": "setTwentyFourHourShield",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
             "internalType": "string",
             "name": "paymentID",
             "type": "string"
@@ -76,6 +87,17 @@
         "name": "transferOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "string",
+            "name": "paymentID",
+            "type": "string"
+        }],
+        "name": "twentyFourHourShield_payment",
+        "outputs": [],
+        "stateMutability": "payable",
         "type": "function"
     },
     {
@@ -187,6 +209,17 @@
             "internalType": "address payable",
             "name": "",
             "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "twentyFourHourShield",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
         }],
         "stateMutability": "view",
         "type": "function"
