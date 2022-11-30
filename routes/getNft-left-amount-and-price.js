@@ -45,10 +45,10 @@ router.get(
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
                 let maxNftsAmount = await contract.maxNftsAmount(req.query.id);
-                let maxNftsAmount_json = ethers.utils.formatEther(JSON.parse(maxNftsAmount));
+                let maxNftsAmount_json = ethers.utils.formatEther(JSON.parse(maxNftsAmount) + "");
 
                 let mintedNftsAmount = await contract.mintedNftsAmount(req.query.id);
-                let mintedNftsAmount_json = ethers.utils.formatEther(JSON.parse(mintedNftsAmount));
+                let mintedNftsAmount_json = ethers.utils.formatEther(JSON.parse(mintedNftsAmount) + "");
 
                 let price = await contract.nftMintPrice(req.query.id);
                 let price_json = ethers.utils.formatEther(JSON.parse(price) + "");
