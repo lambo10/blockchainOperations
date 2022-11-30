@@ -4,6 +4,7 @@ const erc1155Abi = JSON.parse(fs.readFileSync("./erc1155.json", "utf8"));
 const ethers = require('ethers');
 const router = express.Router();
 const authenticator = require("../authenticator/index.js");
+const tokenPrices = require("../libraries/tokenPrices.js");
 
 const nft_contract_address = process.env.nft_contract_address;
 
@@ -44,22 +45,24 @@ router.get(
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
                 let maxNftsAmount = await contract.maxNftsAmount(req.query.id);
-                let maxNftsAmount_json = JSON.parse(maxNftsAmount);
+                let maxNftsAmount_json = ethers.utils.formatEther(JSON.parse(maxNftsAmount));
 
                 let mintedNftsAmount = await contract.mintedNftsAmount(req.query.id);
-                let mintedNftsAmount_json = JSON.parse(mintedNftsAmount);
+                let mintedNftsAmount_json = ethers.utils.formatEther(JSON.parse(mintedNftsAmount));
 
                 let price = await contract.nftMintPrice(req.query.id);
-                let price_json = JSON.parse(price);
+                let price_json = ethers.utils.formatEther(JSON.parse(price) + "");
 
+                let price_in_bnb = price_json / parseFloat(await tokenPrices.calcBNBPrice());
 
 
                 res.json({
                     amountLeft: (maxNftsAmount_json - mintedNftsAmount_json),
-                    price: ethers.utils.formatEther(price_json + ""),
+                    price: price_in_bnb,
                     msg: "",
                     success: true,
                 });
+
 
 
             } catch (e) {
