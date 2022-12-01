@@ -42,14 +42,14 @@ router.get(
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
                 let NftTotalHealth = await contract.getPlayerNftTotalHealth(req.query.address, req.query.id);
-                let NftTotalHealth_json = JSON.parse(NftTotalHealth);
+                let NftTotalHealth_json = NftTotalHealth;
 
                 let price = await contract.nftMintPrice(req.query.id);
-                let price_json = JSON.parse(price);
+                let price_json = price;
 
-                let rPriceValue = ethers.utils.formatEther(price_json + "");
+                let rPriceValue = ethers.utils.formatEther(price_json);
 
-                let calc = ethers.utils.formatEther(NftTotalHealth_json + "") / (rPriceValue / 2);
+                let calc = ethers.utils.formatEther(NftTotalHealth_json) / (rPriceValue / 2);
 
                 let result = calc.toString().split('.')[0];
 

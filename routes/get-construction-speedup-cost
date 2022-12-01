@@ -42,10 +42,10 @@ router.get(
                 let contract = new ethers.Contract(speedups_contract_address, speedups, provider);
 
                 let speedup_cost = await contract.speedUpConstructionAmount();
-                let speedup_cost_json = JSON.parse(speedup_cost);
+                let speedup_cost_json = speedup_cost;
 
                 res.json({
-                    msg: ethers.utils.formatEther(speedup_cost_json + ""),
+                    msg: ethers.utils.formatEther(speedup_cost_json),
                     success: true,
                 });
 

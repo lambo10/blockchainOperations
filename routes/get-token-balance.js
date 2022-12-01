@@ -42,10 +42,10 @@ router.get(
                 let contract = new ethers.Contract(token_contract_address, tokenABI, provider);
 
                 let totalGverseToken = await contract.balanceOf(req.query.address);
-                let totalGverseToken_json = JSON.parse(totalGverseToken);
+                let totalGverseToken_json = totalGverseToken;
 
                 res.json({
-                    msg: parseFloat(ethers.utils.formatEther(totalGverseToken_json + "")).toFixed(3),
+                    msg: parseFloat(ethers.utils.formatEther(totalGverseToken_json)).toFixed(3),
                     success: true,
                 });
 

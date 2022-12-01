@@ -42,10 +42,10 @@ router.get(
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
                 let totalGverseToken = await contract.winnings(req.query.address);
-                let totalGverseToken_json = JSON.parse(totalGverseToken);
+                let totalGverseToken_json = totalGverseToken;
 
                 res.json({
-                    msg: ethers.utils.formatEther(totalGverseToken_json + ""),
+                    msg: ethers.utils.formatEther(totalGverseToken_json),
                     success: true,
                 });
 
