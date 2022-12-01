@@ -29,7 +29,7 @@ router.get(
                         break;
                     case "97":
                         rpc = "https://data-seed-prebsc-1-s3.binance.org:8545/";
-                        k = 0.011;
+                        k = 0.015;
                         break;
                     default:
                         res.json({
