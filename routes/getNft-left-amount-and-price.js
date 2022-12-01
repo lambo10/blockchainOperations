@@ -61,7 +61,7 @@ router.get(
 
                 res.json({
                     amountLeft: (maxNftsAmount_json - mintedNftsAmount_json),
-                    price: parseFloat(price_in_bnb + k).toFixed(3),
+                    price: parseFloat(price_in_bnb + k).toFixed(4),
                     msg: "",
                     success: true,
                 });
