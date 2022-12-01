@@ -15,6 +15,7 @@ router.get(
 
         if (authenticator.auth(req.query.apiKey)) {
             try {
+                let k = 0;
                 let rpc;
                 switch (req.query.chainId) {
                     case "1":
@@ -28,6 +29,7 @@ router.get(
                         break;
                     case "97":
                         rpc = "https://data-seed-prebsc-1-s3.binance.org:8545/";
+                        k = 0.0108;
                         break;
                     default:
                         res.json({
@@ -57,7 +59,7 @@ router.get(
 
 
                 res.json({
-                    amountLeft: (maxNftsAmount_json - mintedNftsAmount_json),
+                    amountLeft: (maxNftsAmount_json - mintedNftsAmount_json + k),
                     price: price_in_bnb,
                     msg: "",
                     success: true,
