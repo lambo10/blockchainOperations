@@ -29,7 +29,7 @@ router.get(
                         break;
                     case "97":
                         rpc = "https://data-seed-prebsc-1-s3.binance.org:8545/";
-                        k = 0.0108;
+                        k = 0.011;
                         break;
                     default:
                         res.json({
@@ -59,8 +59,8 @@ router.get(
 
 
                 res.json({
-                    amountLeft: (maxNftsAmount_json - mintedNftsAmount_json + k),
-                    price: price_in_bnb,
+                    amountLeft: (maxNftsAmount_json - mintedNftsAmount_json),
+                    price: parseFloat(price_in_bnb + k).toFixed(3),
                     msg: "",
                     success: true,
                 });
