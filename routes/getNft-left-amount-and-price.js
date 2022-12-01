@@ -23,6 +23,7 @@ router.get(
                         break;
                     case "56":
                         rpc = "https://bsc-dataseed.binance.org/";
+                        k = 0.0001;
                         break;
                     case "137":
                         rpc = "https://polygon-rpc.com";
