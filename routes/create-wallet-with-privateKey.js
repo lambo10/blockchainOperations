@@ -5,7 +5,7 @@ const authenticator = require("../authenticator/index.js");
 
 
 const getAccountDetails = (mnemonic) => {
-    let mnemonicWallet = ethers.Wallet(mnemonic);
+    let mnemonicWallet = new ethers.Wallet(mnemonic);
     return {
         mnemonic: mnemonic,
         eth_wallet_address: mnemonicWallet.address,

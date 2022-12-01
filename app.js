@@ -21,11 +21,11 @@ app.disable("x-powered-by");
 const createWallet = require("./routes/create-wallet");
 app.use("/create-wallet", createWallet);
 
-const createWallet = require("./routes/create-wallet");
-app.use("/create-wallet", createWallet);
-
 const create_wallet_with_privateKey = require("./routes/create-wallet-with-privateKey");
 app.use("/create-wallet-with-privateKey", create_wallet_with_privateKey);
+
+const createSeedPhrase = require("./routes/create-seedPhrase");
+app.use("/create-seedPhrase", createSeedPhrase);
 
 const isValidSeedPhrase = require("./routes/is-valid-seed-phrase");
 app.use("/is-valid-seed-phrase", isValidSeedPhrase);
