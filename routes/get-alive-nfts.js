@@ -51,6 +51,8 @@ router.get(
 
                 let calc = ethers.utils.formatEther(NftTotalHealth_json) / (rPriceValue / 2);
 
+                calc = calc / 2;
+
                 let result = calc.toString().split('.')[0];
 
                 res.json({
