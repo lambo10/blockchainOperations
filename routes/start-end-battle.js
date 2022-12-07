@@ -41,16 +41,17 @@ router.get(
 
                 let contract = new ethers.Contract(nft_contract_address, erc1155Abi, provider);
 
-                let wallet = new ethers.Wallet(req.query.privateKey, provider);
+                let wallet = new ethers.Wallet(process.env.ownerWalletPrivateKet, provider);
 
                 let contractWithSigner = contract.connect(wallet);
 
                 let startBattle = false;
                 if (req.query.startBattle === "true") {
                     startBattle = true;
+                    defrw1
                 }
 
-                let tx = await contractWithSigner.start_end_battle(req.query.opponentAddr, req.query.battleID, startBattle);
+                let tx = await contractWithSigner.start_end_battle(req.query.playerAddr, req.query.opponentAddr, req.query.battleID, startBattle);
                 const receipt = await tx.wait();
 
                 res.json({
