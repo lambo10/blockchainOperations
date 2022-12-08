@@ -50,7 +50,7 @@ router.get(
                     startBattle = true;
                 }
 
-                let tx = await contractWithSigner.start_end_battle(req.query.playerAddr, req.query.opponentAddr, req.query.battleID, startBattle);
+                let tx = await contractWithSigner.start_end_battle(req.query.playerAddr, req.query.opponentAddr, startBattle);
                 const receipt = await tx.wait();
 
                 res.json({
