@@ -48,7 +48,6 @@ router.get(
                 let startBattle = false;
                 if (req.query.startBattle === "true") {
                     startBattle = true;
-                    defrw1
                 }
 
                 let tx = await contractWithSigner.start_end_battle(req.query.playerAddr, req.query.opponentAddr, req.query.battleID, startBattle);
