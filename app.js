@@ -96,5 +96,8 @@ app.use("/start-end-battle", start_end_battle);
 const twenty_four_hour_shield_payment = require("./routes/twenty-four-hour-shield-payment");
 app.use("/twenty-four-hour-shield-payment", twenty_four_hour_shield_payment);
 
+const getTotalAmountPurchasedOnSeedSale = require("./routes/get-total-amount-purchased-on-seedsale");
+app.use("/getTotalAmountPurchasedOnSeedSale", getTotalAmountPurchasedOnSeedSale);
+
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
