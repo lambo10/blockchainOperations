@@ -43,11 +43,11 @@ function calcTotalAmount(prices) {
 
 router.get("/", (req, res) => {
     if (authenticator.auth(req.query.apiKey)) {
-        _prices = calcNftPrices(req.query.k);
-        _totalBNBamountForEachNFT = calctotalBNBamountForEachNFT(_prices);
+        const _prices = calcNftPrices(req.query.k);
+        const _totalBNBamountForEachNFT = calctotalBNBamountForEachNFT(_prices);
         res.json({
             prices: _prices,
-            inWei: ethPricesInWEI(_prices),
+            // inWei: ethPricesInWEI(_prices),
             totalBNBamountForEachNFT: _totalBNBamountForEachNFT,
             totalAmounnt: calcTotalAmount(_totalBNBamountForEachNFT)
         });
