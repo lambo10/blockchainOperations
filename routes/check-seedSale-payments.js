@@ -19,11 +19,18 @@ router.get(
 
                 let tokenBalance = await contract.balanceOf(req.query.address);
                 let tokenBalance_json = tokenBalance;
-
-                res.json({
-                    msg: parseFloat(ethers.utils.formatEther(tokenBalance_json)).toFixed(3),
-                    success: true,
-                });
+                let finalOutput = parseFloat(ethers.utils.formatEther(tokenBalance_json)).toFixed(3);
+                if(finalOutput > 0){
+                    res.json({
+                        msg: finalOutput,
+                        success: true,
+                    });
+                }else{
+                    res.json({
+                        msg: "Wallet Has 0 Balance",
+                        success: false,
+                    });
+                }
 
                 }else if(req.query.chainId === "1"  && req.query.token === "ETH"){
                 //bsc network
@@ -31,10 +38,18 @@ router.get(
 
                 bnbBalance = await provider.getBalance(req.query.address);
 
-                res.json({
-                    msg: parseFloat(ethers.utils.formatEther(bnbBalance)).toFixed(3),
-                    success: true,
-                });
+                let finalOutput = parseFloat(ethers.utils.formatEther(bnbBalance)).toFixed(3);
+                if(finalOutput > 0){
+                    res.json({
+                        msg: finalOutput,
+                        success: true,
+                    });
+                }else{
+                    res.json({
+                        msg: "Wallet Has 0 Balance",
+                        success: false,
+                    });
+                }
 
                 }else if(req.query.chainId === "56"  && req.query.token === "BUSD"){
                     //bsc network
@@ -45,10 +60,18 @@ router.get(
                     let tokenBalance = await contract.balanceOf(req.query.address);
                     let tokenBalance_json = tokenBalance;
     
-                    res.json({
-                        msg: parseFloat(ethers.utils.formatEther(tokenBalance_json)).toFixed(3),
-                        success: true,
-                    });
+                    let finalOutput = parseFloat(ethers.utils.formatEther(tokenBalance_json)).toFixed(3);
+                    if(finalOutput > 0){
+                        res.json({
+                            msg: finalOutput,
+                            success: true,
+                        });
+                    }else{
+                        res.json({
+                            msg: "Wallet Has 0 Balance",
+                            success: false,
+                        });
+                    }
     
                 }else if(req.query.chainId === "56"  && req.query.token === "BNB"){
                     //bsc network
@@ -56,10 +79,18 @@ router.get(
     
                     bnbBalance = await provider.getBalance(req.query.address);
     
-                    res.json({
-                        msg: parseFloat(ethers.utils.formatEther(bnbBalance)).toFixed(3),
-                        success: true,
-                    });
+                    let finalOutput = parseFloat(ethers.utils.formatEther(bnbBalance)).toFixed(3);
+                    if(finalOutput > 0){
+                        res.json({
+                            msg: finalOutput,
+                            success: true,
+                        });
+                    }else{
+                        res.json({
+                            msg: "Wallet Has 0 Balance",
+                            success: false,
+                        });
+                    }
     
                     }else{
                         res.json({
