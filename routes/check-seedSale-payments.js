@@ -3,6 +3,7 @@ const fs = require("fs");
 const seedSaleContractAbi = JSON.parse(fs.readFileSync("./seedSaleContractAbi.json", "utf8"));
 const ethers = require('ethers');
 const router = express.Router();
+const tokenABI = JSON.parse(fs.readFileSync("./tokenABI.json", "utf8"));
 
 router.get(
     "/",
