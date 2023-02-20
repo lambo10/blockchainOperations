@@ -61,6 +61,11 @@ router.get(
                         success: true,
                     });
     
+                    }else{
+                        res.json({
+                            msg: "Erro: invalid inputs",
+                            success: false,
+                        });
                     }
 
             } catch (e) {
