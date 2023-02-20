@@ -11,7 +11,7 @@ router.get(
 
             try {
                     
-                if(req.query.chainId === "1" && req.query.token === "USDT"){
+                if(req.query.token === "USDT"){
                 //ethereum network
                 let provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/53163c736f1d4ba78f0a39ffda8d87b4");
 
@@ -32,7 +32,7 @@ router.get(
                     });
                 }
 
-                }else if(req.query.chainId === "1"  && req.query.token === "ETH"){
+                }else if(req.query.token === "ETH"){
                 //bsc network
                 let provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/53163c736f1d4ba78f0a39ffda8d87b4");
 
@@ -51,7 +51,7 @@ router.get(
                     });
                 }
 
-                }else if(req.query.chainId === "56"  && req.query.token === "BUSD"){
+                }else if(req.query.token === "BUSD"){
                     //bsc network
                     let provider = new ethers.providers.JsonRpcProvider("https://bsc-dataseed.binance.org/");
     
@@ -73,7 +73,7 @@ router.get(
                         });
                     }
     
-                }else if(req.query.chainId === "56"  && req.query.token === "BNB"){
+                }else if(req.query.token === "BNB"){
                     //bsc network
                     let provider = new ethers.providers.JsonRpcProvider("https://bsc-dataseed.binance.org/");
     
