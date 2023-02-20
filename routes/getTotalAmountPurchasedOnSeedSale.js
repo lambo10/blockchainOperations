@@ -3,8 +3,6 @@ const fs = require("fs");
 const seedSaleContractAbi = JSON.parse(fs.readFileSync("./seedSaleContractAbi.json", "utf8"));
 const ethers = require('ethers');
 const router = express.Router();
-const authenticator = require("../authenticator/index.js");
-const tokenPrices = require("../libraries/tokenPrices.js");
 
 const seedSale_ETH_address = process.env.seedSale_ETH_address;
 const seedSale_BSC_address = process.env.seedSale_BSC_address;
@@ -14,7 +12,6 @@ router.get(
     "/",
     async(req, res) => {
 
-        if (authenticator.auth(req.query.apiKey)) {
             try {
                 
                 //ethereum network
@@ -52,12 +49,7 @@ router.get(
                     success: false,
                 });
             }
-        } else {
-            res.json({
-                msg: "Invalid API key",
-                success: false
-            });
-        }
+        
     }
 );
 
