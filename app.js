@@ -96,8 +96,8 @@ app.use("/start-end-battle", start_end_battle);
 const twenty_four_hour_shield_payment = require("./routes/twenty-four-hour-shield-payment");
 app.use("/twenty-four-hour-shield-payment", twenty_four_hour_shield_payment);
 
-const getTotalAmountPurchasedOnSeedSale = require("./routes/get-total-amount-purchased-on-seedsale");
-app.use("/getTotalAmountPurchasedOnSeedSale", getTotalAmountPurchasedOnSeedSale);
+const getTotalAmountPurchasedOnSeedSale = require("./routes/getTotalAmountPurchasedOnSeedSale");
+app.use("/get-total-amount-purchased-on-seedsale", getTotalAmountPurchasedOnSeedSale);
 
 const check_seedSale_payments = require("./routes/check-seedSale-payments");
 app.use("/check-seedSale-payments", check_seedSale_payments);
