@@ -27,12 +27,12 @@ router.get(
                     const gverseUsdRate = await Contract.gverse_usd_conversion_rate();
                     const bnbUsdRate = await Contract.getBNBtoBusdPrice("1");
                     res.json({
-                        msg: gverseUsdRate*bnbUsdRate,
+                        msg: JSON.parse(gverseUsdRate)*JSON.parse(bnbUsdRate),
                         success: true,
                     });
                 }else{
                     res.json({
-                        msg: await Contract.gverse_usd_conversion_rate(),
+                        msg: JSON.parse(await Contract.gverse_usd_conversion_rate()),
                         success: true,
                     });
                 }
