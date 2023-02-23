@@ -11,7 +11,7 @@ const seedSale_BSC_address = process.env.seedSale_BSC_address;
 router.get(
     "/",
     async(req, res) => {
-
+        res.setHeader("Access-Control-Allow-Origin", "*");
             try {
                 
                 let Contract = null
