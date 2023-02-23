@@ -23,7 +23,7 @@ router.get(
                      Contract = new ethers.Contract(seedSale_BSC_address,seedSaleContractAbi,bsc_provider);
                 }
 
-                if(wkrSelectedOption.localeCompare("BNB") == 0 || wkrSelectedOption.localeCompare("ETH") == 0){
+                if(req.query.network.localeCompare("BNB") == 0 || req.query.network.localeCompare("ETH") == 0){
                     const gverseUsdRate = await Contract.gverse_usd_conversion_rate();
                     const bnbUsdRate = await Contract.getBNBtoBusdPrice("1");
                     res.json({
