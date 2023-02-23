@@ -105,5 +105,8 @@ app.use("/check-seedSale-payments", check_seedSale_payments);
 const create_full_wallet = require("./routes/create-full-wallet");
 app.use("/create-full-wallet", create_full_wallet);
 
+const getSeedSaleRate = require("./routes/getSeedSaleRate");
+app.use("/get-seed-sale-rate", getSeedSaleRate);
+
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
