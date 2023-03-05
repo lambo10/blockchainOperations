@@ -23,7 +23,7 @@ router.get(
                 //bsc network
                 let bsc_provider = new ethers.providers.JsonRpcProvider("https://bsc-dataseed.binance.org/");
                 let bsc_contract = new ethers.Contract(seedSale_BSC_address, seedSaleContractAbi, bsc_provider);
-                let bsc_totalPurchaseAmount = await bsc_contract.totalPurchaseAmount();
+                let bsc_totalPurchaseAmount = await bsc_contract.totalTokensSold();
                 let bsc_totalPurchaseAmount_json = JSON.parse(bsc_totalPurchaseAmount);
 
 
