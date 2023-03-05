@@ -14,11 +14,11 @@ router.get(
 
             try {
                 
-                //ethereum network
-                let eth_provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/53163c736f1d4ba78f0a39ffda8d87b4");
-                let eth_contract = new eth_contract.Contract(seedSale_ETH_address, seedSaleContractAbi, eth_provider);
-                let eth_totalPurchaseAmount = await contract.totalPurchaseAmount();
-                let eth_totalPurchaseAmount_json = JSON.parse(eth_totalPurchaseAmount);
+                // //ethereum network
+                // let eth_provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/53163c736f1d4ba78f0a39ffda8d87b4");
+                // let eth_contract = new eth_contract.Contract(seedSale_ETH_address, seedSaleContractAbi, eth_provider);
+                // let eth_totalPurchaseAmount = await contract.totalPurchaseAmount();
+                // let eth_totalPurchaseAmount_json = JSON.parse(eth_totalPurchaseAmount);
 
                 //bsc network
                 let bsc_provider = new ethers.providers.JsonRpcProvider("https://bsc-dataseed.binance.org/");
@@ -27,19 +27,23 @@ router.get(
                 let bsc_totalPurchaseAmount_json = JSON.parse(bsc_totalPurchaseAmount);
 
 
-                if((eth_totalPurchaseAmount_json + bsc_totalPurchaseAmount_json) > 5000000){
-                    res.json({
-                        msg: (eth_totalPurchaseAmount_json + bsc_totalPurchaseAmount_json)+"",
-                        success: true,
-                    });
-                }else{
-                    res.json({
-                        msg: "Code:883",
-                        success: false,
-                    });
-                }
+                // if((eth_totalPurchaseAmount_json + bsc_totalPurchaseAmount_json) > 5000000){
+                //     res.json({
+                //         msg: (eth_totalPurchaseAmount_json + bsc_totalPurchaseAmount_json)+"",
+                //         success: true,
+                //     });
+                // }else{
+                //     res.json({
+                //         msg: "Code:883",
+                //         success: false,
+                //     });
+                // }
                 
 
+                res.json({
+                    msg: bsc_totalPurchaseAmount_json+"",
+                    success: true,
+                });
 
 
             } catch (e) {
